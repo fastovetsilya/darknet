@@ -1,4 +1,6 @@
-# Yolo v4, v3 and v2 for Windows and Linux
+# Yolo v4c for round object detection
+
+# (README is in progress)
 
 ## (neural networks for object detection)
 

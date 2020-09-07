@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include "ellipse_overlap_toms.h"
 
 #ifndef M_PI
 #define M_PI 3.141592
@@ -134,17 +135,39 @@ float overlap(float x1, float w1, float x2, float w2)
 
 float box_intersection(box a, box b)
 {
-    float w = overlap(a.x, a.w, b.x, b.w);
-    float h = overlap(a.y, a.h, b.y, b.h);
-    if(w < 0 || h < 0) return 0;
-    float area = w*h;
+    float PHI_1 = 0.0;
+    float A1 = a.w / 2;
+    float B1 = a.h / 2;
+    float H1 = a.x;
+    float K1 = 1 - a.y;
+
+    float PHI_2 = 0.0;
+    float A2 = b.w / 2; 
+    float B2 = b.h / 2; 
+    float H2 = b.x; 
+    float K2 = 1 - b.y;
+
+    double x_toms[4], y_toms[4];
+    int nroots_toms;
+    int rtn[5] = {0,0,0,0,0};
+    float area = ellipse_ellipse_overlap_netlibs(PHI_1, A1, B1, H1, K1, 
+                                    PHI_2, A2, B2, H2, K2, x_toms, y_toms, &nroots_toms, &rtn[TOMS]);
     return area;
 }
 
 float box_union(box a, box b)
 {
+    float A1 = a.w / 2;
+    float B1 = a.h / 2;
+    float A2 = b.w / 2; 
+    float B2 = b.h / 2;
+    float A1B1 = A1 * B1;
+    float A2B2 = A2 * B2;
+    float S1 = pi * A1B1;
+    float S2 = pi * A2B2;
+    float SUM_S1S2 = S1 + S2;
     float i = box_intersection(a, b);
-    float u = a.w*a.h + b.w*b.h - i;
+    float u = SUM_S1S2 - i;
     return u;
 }
 
@@ -613,7 +636,6 @@ dbox dunion(box a, box b)
     return du;
 }
 
-
 void test_dunion()
 {
     box a = {0, 0, 1, 1};
@@ -636,6 +658,7 @@ void test_dunion()
     hinter = (hinter - inter)/(.0001);
     printf("Union Manual %f %f %f %f\n", xinter, yinter, winter, hinter);
 }
+
 void test_dintersect()
 {
     box a = {0, 0, 1, 1};
