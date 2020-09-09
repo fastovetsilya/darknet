@@ -39,7 +39,7 @@ Modified LabelImg tool for image annotation was developed specifically for YOLOv
 [here](https://github.com/fastovetsilya/labelImg). The repository is the fork of the 
 [original LabelImg](https://github.com/tzutalin/labelImg).
 
-<img src="https://raw.githubusercontent.com/fastovetsilya/labelImg/master/demo/demo8.png" width="350" height="300">
+<img src="https://raw.githubusercontent.com/fastovetsilya/labelImg/master/demo/demo8.png" width="600" height="300">
 
 # License
 The method for computing overlap areas of two ellipses that is used in the current implementation of YOLO, is distributed under GPLv3 license. For this reason, this project is distributed with the same license. If you would like to use this code for your project, please use GPLv3.  
