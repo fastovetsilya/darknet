@@ -44,8 +44,8 @@ Modified LabelImg tool for image annotation was developed specifically for YOLOv
 # Model performance 
 The performance of the the proposed model is different from the original YOLOv4. No good testing has been done yet, but it appears that YOLOv4c may be better at detecting hidden objects and estimating the area of the objects. The images below show some of the early results of the two models trained on the same datasets for 2k epochs. 
 
-<img src="https://github.com/fastovetsilya/darknet/blob/master/demo_images/demo_yolo_1.png" width="600" height="600">
-<img src="https://github.com/fastovetsilya/darknet/blob/master/demo_images/demo_yolo_2.png" width="600" height="600">
+<img src="https://github.com/fastovetsilya/darknet/blob/master/demo_images/demo_yolo_1.png" width="600" height="300">
+<img src="https://github.com/fastovetsilya/darknet/blob/master/demo_images/demo_yolo_2.png" width="600" height="300">
 
 # License
 The method for computing overlap areas of two ellipses that is used in the current implementation of YOLO, is distributed under GPLv3 license. For this reason, this project is distributed with the same license. If you would like to use this code for your project, please use GPLv3.  
