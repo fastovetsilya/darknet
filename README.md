@@ -17,10 +17,7 @@ study to achieve a better performance for tomato detection was the use of circle
 bounding boxes. For two circles, computing IoU is just as fast and easy as in the case of rectangles.
 Given two circles from the image below, the area of their intersection (overlap) can be computed as follows:
 
-```
-math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="block" id="mm36"><mrow><mrow><msub><mi>A</mi><mrow><mi>o</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>l</mi><mi>a</mi><mi>p</mi></mrow></msub><mo>=</mo><mi>θ</mi><msup><mi>R</mi><mn>2</mn></msup><mo>+</mo><mi>φ</mi><msup><mi>r</mi><mn>2</mn></msup><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>R</mi><mn>2</mn></msup><mo form="prefix">sin</mo><mn>2</mn><mi>θ</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>r</mi><mn>2</mn></msup><mo form="prefix">sin</mo><mn>2</mn><mi>φ</mi></mrow></mrow></math>
-```
-
+<img src="https://github.com/fastovetsilya/darknet/blob/master/demo_images/eq1.png" width="350" height="300">
 <img src="https://github.com/fastovetsilya/darknet/blob/master/demo_images/CBBX.png" width="350" height="300">
 
 The image and the formula are taken from [the original article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7180616/). 
