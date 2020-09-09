@@ -37,6 +37,8 @@ exists as compared to simple computation of IoU for rectangles or circles.
 # License
 The method for computing overlap areas of two ellipses that is used in the current implementation of YOLO, is distributed under GPLv3 license. For this reason, this project is distributed with the same license. If you would like to use this code for your project, please use GPLv3.  
 
+# Original REAME
+
 Paper Yolo v4: https://arxiv.org/abs/2004.10934
 
 More details: [medium link](https://medium.com/@alexeyab84/yolov4-the-most-accurate-real-time-neural-network-on-ms-coco-dataset-73adfd3602fe?source=friends_link&sk=6039748846bbcf1d960c3061542591d7)
