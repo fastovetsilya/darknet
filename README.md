@@ -39,7 +39,7 @@ Ellipse rotation is not supported in the current release of YOLOv4c. However, ad
 # Image annotation tool 
 Modified LabelImg tool for image annotation was developed specifically for YOLOv4c and is available 
 [here](https://github.com/fastovetsilya/labelImg). The repository is the fork of the 
-[original LabelImg](https://github.com/tzutalin/labelImg).
+[original LabelImg](https://github.com/tzutalin/labelImg). Save the annotations in the standard YOLO format.
 
 <img src="https://raw.githubusercontent.com/fastovetsilya/labelImg/master/demo/demo8.png" width="600" height="300">
 
