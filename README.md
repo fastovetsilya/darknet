@@ -1,8 +1,89 @@
-# Yolo v4c for round object detection
+# YOLOv4c for round object detection
+Forked from [YOLOv4 darknet](https://github.com/AlexeyAB/darknet) by AlexeyAB.
+Also includes YOLOv3 and YOLOv2. 
 
-# (README is in progress)
+# YOLOv4 vs YOLOv4c: ellipse bounding boxes
+Basic implementations of YOLO algorithms use rectangular bounding boxes. 
+[Intersection Over Union](https://en.wikipedia.org/wiki/Jaccard_index) (IoU) of two
+bounding boxes is then used in model training. Rectangular bounding boxes is a reasonable choice for 
+objects with various shapes, and the computation of IoU of two rectangles is fast and easy. However, for a 
+specific purpose (e.g. detection of objects with round shapes), a more precise estimates of IoU may 
+be achieved by using bounding boxes of a different shape. 
 
-## (neural networks for object detection)
+The current project is inspired by YOLO-Tomato model described in 
+[this paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7180616/). YOLO-Tomato is a modified 
+version of YOLOv3 that is optimized for the specific purpose of tomato detection. One of the methods used in the 
+study to achieve a better performance for tomato detection was the use of circles instead of rectangles for the 
+bounding boxes. For two circles, computing IoU is just as fast and easy as in the case of rectangles.
+Given two circles from the image below, the area of their intersection (overlap) can be computed as follows: 
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="mm36">
+  <mrow>
+    <mrow>
+      <msub>
+        <mi>A</mi>
+        <mrow>
+          <mi>o</mi>
+          <mi>v</mi>
+          <mi>e</mi>
+          <mi>r</mi>
+          <mi>l</mi>
+          <mi>a</mi>
+          <mi>p</mi>
+        </mrow>
+      </msub>
+      <mo>=</mo>
+      <mi>&#x3B8;</mi>
+      <msup>
+        <mi>R</mi>
+        <mn>2</mn>
+      </msup>
+      <mo>+</mo>
+      <mi>&#x3C6;</mi>
+      <msup>
+        <mi>r</mi>
+        <mn>2</mn>
+      </msup>
+      <mo>&#x2212;</mo>
+      <mfrac>
+        <mn>1</mn>
+        <mn>2</mn>
+      </mfrac>
+      <msup>
+        <mi>R</mi>
+        <mn>2</mn>
+      </msup>
+      <mo form="prefix">sin</mo>
+      <mn>2</mn>
+      <mi>&#x3B8;</mi>
+      <mo>&#x2212;</mo>
+      <mfrac>
+        <mn>1</mn>
+        <mn>2</mn>
+      </mfrac>
+      <msup>
+        <mi>r</mi>
+        <mn>2</mn>
+      </msup>
+      <mo form="prefix">sin</mo>
+      <mn>2</mn>
+      <mi>&#x3C6;</mi>
+    </mrow>
+  </mrow>
+</math>
+
+The image and the formula are taken from [the original article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7180616/). 
+Going further, the idea of the current work is to use ellipse-shaped bounding boxes instead of the circular ones. The ellipse can be parameterized by the coordinates of the rectangle that circumscribes it. This makes it possible to compute IoU for two ellipses while keeping intact the effective configuration of the original YOLOv4 model and retaining the original YOLO format for image annotation. The big problem with this approach is that there is no precise general analytic solution for computing the overlap area of two ellipses, and the traditional Monte-Carlo approach is too slow for our purpose. 
+
+# Computing overlap area of two ellipses
+A general algorithm for computing the overlap area of two ellipses was proposed in 2012 in 
+[this paper](https://link.springer.com/article/10.1007/s00791-013-0214-3), and the implementation 
+of this method in C is also [available](https://github.com/chraibi/EEOver). The work was inspired by the 
+use cases in which the computational speed is important. As a result, the proposed algorithm is much faster than 
+the existing methods. The proposed algorithm is used in the computation of IoU in the present modification of YOLOv4.
+The speed of this method allowed for the training speed comparable to the original YOLOv4. However, a small CPU bottleneck 
+exists as compared to simple computation of IoU for rectangles or circles. 
+
+
 
 Paper Yolo v4: https://arxiv.org/abs/2004.10934
 
