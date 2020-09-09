@@ -34,6 +34,8 @@ the existing methods. The proposed algorithm is used in the computation of IoU i
 The speed of this method allowed for the training speed comparable to the original YOLOv4. However, a small CPU bottleneck 
 exists as compared to simple computation of IoU for rectangles or circles. 
 
+# License
+The method for computing overlap areas of two ellipses that is used in the current implementation of YOLO, is distributed under GPLv3 license. For this reason, this project is distributed with the same license. If you would like to use this code for your project, please use GPLv3.  
 
 Paper Yolo v4: https://arxiv.org/abs/2004.10934
 
