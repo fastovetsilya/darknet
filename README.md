@@ -34,7 +34,7 @@ The speed of this method allowed for the training speed comparable to the origin
 exists as compared to simple computation of IoU for rectangles or circles. 
 
 # Ellipse rotation
-Ellipse rotation is not supported in the current release of YOLOv4c. However, adding ellipse rotation parameter may allow for better detection of round object in various positions. More experiments are required. 
+Ellipse rotation is not supported in the current release of YOLOv4c. However, adding ellipse rotation parameter may allow for better detection of round object in various positions. More experiments are needed. 
 
 # Image annotation tool 
 Modified LabelImg tool for image annotation was developed specifically for YOLOv4c and is available 
