@@ -42,7 +42,7 @@ Modified LabelImg tool for image annotation was developed specifically for YOLOv
 <img src="https://raw.githubusercontent.com/fastovetsilya/labelImg/master/demo/demo8.png" width="600" height="300">
 
 # Model performance 
-The performance of the the proposed model is different from the original YOLOv4. No good testing has been done yet, but it appears that YOLOv4c may be better at detecting hidden objects and estimating the area of the objects. The images below show some of the early results of the two models trained on the same datasets for 2k epochs. 
+The performance of the the proposed model is different from the original YOLOv4. No good testing has been done yet, but it appears that YOLOv4c may be better at detecting hidden objects and estimating the boundaries of round objects. The images below show some of the early results of the two models trained on the same datasets for 2k epochs. 
 
 <img src="https://github.com/fastovetsilya/darknet/blob/master/demo_images/demo_yolo_1.png" width="600" height="300">
 <img src="https://github.com/fastovetsilya/darknet/blob/master/demo_images/demo_yolo_2.png" width="600" height="430">
