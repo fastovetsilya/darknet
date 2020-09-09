@@ -25,6 +25,7 @@ Going further, the idea of the current work is to use ellipse-shaped bounding bo
 
 # Computing overlap area of two ellipses
 <img src="https://github.com/chraibi/EEOver/blob/master/case010.png" width="350" height="300">
+
 A general algorithm for computing the overlap area of two ellipses was proposed in 2012 in 
 [this paper](https://link.springer.com/article/10.1007/s00791-013-0214-3/), and the implementation 
 of this method in C is also [available](https://github.com/chraibi/EEOver/). The work was inspired by the 
@@ -32,7 +33,6 @@ use cases in which the computational speed is important. As a result, the propos
 the existing methods. The proposed algorithm is used in the computation of IoU in the present modification of YOLOv4.
 The speed of this method allowed for the training speed comparable to the original YOLOv4. However, a small CPU bottleneck 
 exists as compared to simple computation of IoU for rectangles or circles. 
-
 
 
 Paper Yolo v4: https://arxiv.org/abs/2004.10934
