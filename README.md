@@ -40,6 +40,9 @@ Modified LabelImg tool for image annotation was developed specifically for YOLOv
 
 <img src="https://raw.githubusercontent.com/fastovetsilya/labelImg/master/demo/demo8.png" width="600" height="300">
 
+# Ellipse rotation
+Ellipse rotation is not supported in the current release of YOLOv4c. However, adding ellipse rotation parameter may allow for better detection of round object in various positions. More experiments are required. 
+
 # Model performance 
 The performance of the the proposed model is different from the original YOLOv4. No good testing has been done yet, but it appears that YOLOv4c may be better at detecting hidden objects and estimating the boundaries of round objects. The images below show some of the early results of the two models trained on the same datasets for 2k epochs. 
 
