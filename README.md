@@ -21,7 +21,7 @@ Given two circles from the image below, the area of their intersection (overlap)
 <img src="https://github.com/fastovetsilya/darknet/blob/master/demo_images/CBBX.png" width="350" height="300">
 
 The image and the formula are taken from [the original article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7180616/). 
-Going further, the idea of the current work is to use ellipse-shaped bounding boxes instead of the circular ones. The ellipse can be parameterized by the coordinates of the rectangle that circumscribes it. This makes it possible to compute IoU for two ellipses while keeping intact the effective configuration of the original YOLOv4 model and retaining the original YOLO format for image annotation. The big problem with this approach is that there is no precise general analytic solution for computing the overlap area of two ellipses, and the traditional Monte-Carlo approach is too slow for our purpose. 
+Going further, the idea of the current work is to use ellipse-shaped bounding boxes instead of the circular ones. The ellipse can be parameterized by the coordinates of the rectangle that circumscribes it. This makes it possible to compute IoU for two ellipses while keeping intact the effective configuration of the original YOLOv4 model and retaining the original YOLO format for image annotation. The big problem with this approach is that there is no precise general analytical solution for computing the overlap area of two ellipses, and the traditional Monte-Carlo approach is too slow for our purpose. 
 
 # Computing overlap area of two ellipses
 <img src="https://github.com/chraibi/EEOver/blob/master/case010.png" width="350" height="300">
