@@ -15,61 +15,11 @@ The current project is inspired by YOLO-Tomato model described in
 version of YOLOv3 that is optimized for the specific purpose of tomato detection. One of the methods used in the 
 study to achieve a better performance for tomato detection was the use of circles instead of rectangles for the 
 bounding boxes. For two circles, computing IoU is just as fast and easy as in the case of rectangles.
-Given two circles from the image below, the area of their intersection (overlap) can be computed as follows: 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="mm36">
-  <mrow>
-    <mrow>
-      <msub>
-        <mi>A</mi>
-        <mrow>
-          <mi>o</mi>
-          <mi>v</mi>
-          <mi>e</mi>
-          <mi>r</mi>
-          <mi>l</mi>
-          <mi>a</mi>
-          <mi>p</mi>
-        </mrow>
-      </msub>
-      <mo>=</mo>
-      <mi>&#x3B8;</mi>
-      <msup>
-        <mi>R</mi>
-        <mn>2</mn>
-      </msup>
-      <mo>+</mo>
-      <mi>&#x3C6;</mi>
-      <msup>
-        <mi>r</mi>
-        <mn>2</mn>
-      </msup>
-      <mo>&#x2212;</mo>
-      <mfrac>
-        <mn>1</mn>
-        <mn>2</mn>
-      </mfrac>
-      <msup>
-        <mi>R</mi>
-        <mn>2</mn>
-      </msup>
-      <mo form="prefix">sin</mo>
-      <mn>2</mn>
-      <mi>&#x3B8;</mi>
-      <mo>&#x2212;</mo>
-      <mfrac>
-        <mn>1</mn>
-        <mn>2</mn>
-      </mfrac>
-      <msup>
-        <mi>r</mi>
-        <mn>2</mn>
-      </msup>
-      <mo form="prefix">sin</mo>
-      <mn>2</mn>
-      <mi>&#x3C6;</mi>
-    </mrow>
-  </mrow>
-</math>
+Given two circles from the image below, the area of their intersection (overlap) can be computed as follows:
+
+![eq1](<math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="block" id="mm36"><mrow><mrow><msub><mi>A</mi><mrow><mi>o</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>l</mi><mi>a</mi><mi>p</mi></mrow></msub><mo>=</mo><mi>θ</mi><msup><mi>R</mi><mn>2</mn></msup><mo>+</mo><mi>φ</mi><msup><mi>r</mi><mn>2</mn></msup><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>R</mi><mn>2</mn></msup><mo form="prefix">sin</mo><mn>2</mn><mi>θ</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>r</mi><mn>2</mn></msup><mo form="prefix">sin</mo><mn>2</mn><mi>φ</mi></mrow></mrow></math>)
+
+![Circles Overlap](https://github.com/fastovetsilya/darknet/blob/master/demo_images/CBBX.png)
 
 The image and the formula are taken from [the original article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7180616/). 
 Going further, the idea of the current work is to use ellipse-shaped bounding boxes instead of the circular ones. The ellipse can be parameterized by the coordinates of the rectangle that circumscribes it. This makes it possible to compute IoU for two ellipses while keeping intact the effective configuration of the original YOLOv4 model and retaining the original YOLO format for image annotation. The big problem with this approach is that there is no precise general analytic solution for computing the overlap area of two ellipses, and the traditional Monte-Carlo approach is too slow for our purpose. 
