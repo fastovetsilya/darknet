@@ -3,7 +3,7 @@ Forked from [YOLOv4 darknet](https://github.com/AlexeyAB/darknet) by AlexeyAB.
 Also includes YOLOv3 and YOLOv2. 
 
 # YOLOv4c vs YOLOv4: ellipse bounding boxes
-Basic implementations of YOLO algorithms use rectangular bounding boxes. 
+Original implementations of YOLO algorithms use rectangular bounding boxes. 
 [Intersection Over Union](https://en.wikipedia.org/wiki/Jaccard_index) (IoU) of two
 bounding boxes is then used in model training. Rectangular bounding boxes is a reasonable choice for 
 objects with various shapes, and the computation of IoU of two rectangles is fast and easy. However, for a 
